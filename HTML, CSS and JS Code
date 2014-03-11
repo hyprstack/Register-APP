@@ -94,39 +94,56 @@ The JavaScript:
 var A = {
 	
 	//calculate the total invoiced for the day
-	 dayTotal: function() {
+	dayTotal: function() {
+		//get the input values for invoiced and lastInvoiced
 		var invoiced = document.getElementById("invoiced").value;
 		var lastInvoiced = document.getElementById("lastinvoiced").value;
-		if (typeof invoiced && lastInvoiced !== Number) throw "Insert a valid value!";
-			return invoiced + lastInvoiced;
+		//make sure the input values are number types. If not display message demanding to insert a valid value
+		if (typeof invoiced && lastInvoiced !== Number) 
+				console.log("Insert a valid value!");
+		//return the sum of the total by adding invoiced and lastInvoiced and adding the euro sign
+			return invoiced + lastInvoiced + "€";
 		},
 		
 	total: function() {
+		//get the values for the input elements
 		var notCollected = document.getElementById("notcollected").value;
 		var previousNotCollected = document.getElementById("notcollectedlate").value;
 		var expenditure1 = document.getElementById("expenditure1").value;
 		var expenditure2 = document.getElementById("expenditure1").value;
-		if (typeof notCollected && previousNotCollected && expenditure1 && expenditure2 !== Number) throw "Insert a valid value";
+		//make sure the input values are number types. If not display message demanding to insert a valid value
+		if (typeof notCollected && previousNotCollected && expenditure1 && expenditure2 !== Number) 
+				console.log("Insert a valid value");
+		//return the value of total by getting the value of dayTotal calculated before and subtracting the sum of notCollected, previousNotCollected,
+		//expenditure1 and expenditure2
 			return this.dayTotal - (notCollected + previousNotCollected + expenditure1 + expenditure2);
 		},
 		
 	difference: function() {
+		//get the value of totalCollected
 		var totalCollected = document.getElementById("totalcollected").value;
-		if (typeof totalCollected !== Number) throw "Insert a valid value!";
+		//make sure the input values are number types. If not display message demanding to insert a valid value
+		if (typeof totalCollected !== Number) 
+				console.log("Insert a valid value!");
+		//calculate the difference between previously calculated total and totalCollected
 			difference = this.total - totalCollected;
+		//if the value of difference is larger than 1 and -1, set the background colour of the element to red. If it is between -1 and 1 set the colour to blue
 				if(difference > 1 || difference > -1) {
-					document.getElementById("difference").style.background.red;
-				} else {document.getElementById("difference").style.background.blue;
+					document.getElementById("difference").style.background="red";
+				} else {document.getElementById("difference").style.background="green";
 			};
 			return difference;
 		},
 		
 	register: function() {
 		var deposits = document.getElementBtId("deposite").value;
-		if (typeof deposits !== Number) throw "Insert a valid value!";
+		if (typeof deposits !== Number) 
+				console.log("Insert a valid value!");
+		//the value added to the register is the difference between the totalCollected and the amount deposited
 			register = this.totalCollected - deposits;
+		//display an alert if the amount deposited is larger than the amount of totalCollected
 				if(register < 0) 
 					alert("You have deposited more than collected!");
+				return register;
 		}
 }
-
