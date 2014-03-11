@@ -94,24 +94,24 @@ The JavaScript:
 var A = {
 	
 	//calculate the total invoiced for the day
-	var dayTotal: function() {
-		var invoiced: document.getElementById("invoiced").value;
-		var lastInvoiced: document.getElementById("lastinvoiced").value;
+	 dayTotal: function() {
+		var invoiced = document.getElementById("invoiced").value;
+		var lastInvoiced = document.getElementById("lastinvoiced").value;
 		if (typeof invoiced && lastInvoiced !== Number) throw "Insert a valid value!";
 			return dayTotal = invoiced + lastInvoiced;
 		},
 		
-	var total: function() {
-		var notCollected: document.getElementById("notcollected");
-		var previousNotCollected: document.getElementById("notcollectedlate");
-		var expenditure1: document.getElementById("expenditure1");
-		var expenditure2: document.getElementById("expenditure1");
+	total: function() {
+		var notCollected = document.getElementById("notcollected");
+		var previousNotCollected = document.getElementById("notcollectedlate");
+		var expenditure1 = document.getElementById("expenditure1");
+		var expenditure2 = document.getElementById("expenditure1");
 		if (typeof notCollected && previousNotCollected && expenditure1 && expenditure2 !== Number) throw "Insert a valid value";
 			return total = this.dayTotal - (notCollected + previousNotCollected + expenditure1 + expenditure2);
 		},
 		
-	var difference: function() {
-		var totalCollected: document.getElementById("totalcollected");
+	difference: function() {
+		var totalCollected = document.getElementById("totalcollected");
 		if (typeof totalCollected !== Number) throw "Insert a valid value!";
 			difference = this.total - totalCollected;
 				if(difference > 1 || difference > -1) {
@@ -121,8 +121,8 @@ var A = {
 			return difference;
 		},
 		
-	var register: function() {
-		var deposits: document.getElementBtId("deposite");
+	register: function() {
+		var deposits = document.getElementBtId("deposite");
 		if (typeof deposits !== Number) throw "Insert a valid value!";
 			register = this.totalCollected - deposits;
 				if(register < 0) 
