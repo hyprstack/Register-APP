@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3//DTD XHTML 101//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> 
+			Register APP 
+		</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+	</head>
+	
+	<body>
+		<div id="content">
+		<table class="register">
+			<caption>
+				Register
+			</caption>
+				<thead>
+					<tr class="heads">
+						<th>Date</th>
+						<th>Route</th>
+						<th>Invoiced</th>
+						<th>Previous Invoices</th>
+						<th>Total Invoiced</th>
+						<th>Not Collected</th>
+						<th>Previous Not Collected</th>
+						<th>Consumption Expenditures</th>
+						<th>Other Expenditures</th>
+						<th>Total Route</th>
+						<th>Total Collected</th>
+						<th>Difference T.R&#8722;T.C</th>
+						<th>Deposited</th>
+						<th>In Register</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td id="date"></td>
+						<td id="route"><input type="number" class="boxed"/></td>
+						<td id="invoiced"><input type="number" class="boxed"/>&euro;</td>
+						<td id="lastinvoiced"><input type="number" class="boxed"/>&euro;</td>
+						<td id="daytotal"></td>
+						<td id="notcollected"><input type="number" class="boxed"/>&euro;</td>
+						<td id="notcollectedlate"><input type="number" class="boxed"/>&euro;</td>
+						<td id="expenditure1"><input type="number" class="boxed"/>&euro;</td>
+						<td id="expenditure2"><input type="number" class="boxed"/>&euro;</td>
+						<td id="total"></td>
+						<td id="totalcollected"><input type="number" class="boxed"/>&euro;</td>
+						<td id="difference"></td>
+						<td id="deposite"><input type="number" class="boxed"/>&euro;</td>
+						<td id="registered"></td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+		</body>
+	</html>
+	
+	The CSS in a seprate file, as the JavaScript.
+	
+	.boxed {
+	border-style: none;
+	overflow: auto;
+	width: 70%;
+	margin: 2%;
+}
+
+body {
+	margin: auto;
+	padding: 2%,5%,2%,5%;
+}
+
+caption {
+		font-size: 2em;
+		font-family: "Courier";
+}
+
+table {
+	border-radius: 0.5em;
+	border-style: solid;
+	background: olivedrab;
+}
+
+td {
+	background: darkgreen;
+	opacity: 0.9;
+	width: contain;
+	overflow: scroll;	
+}
+
+The JavaScript:
+
+var A = {
+	
+	//calculate the total invoiced for the day
+	var dayTotal: function() {
+		var invoiced: document.getElementById("invoiced").value;
+		var lastInvoiced: document.getElementById("lastinvoiced").value;
+		if (typeof invoiced && lastInvoiced !== Number) throw "Insert a valid value!";
+			return dayTotal = invoiced + lastInvoiced;
+		},
+		
+	var total: function() {
+		var notCollected: document.getElementById("notcollected");
+		var previousNotCollected: document.getElementById("notcollectedlate");
+		var expenditure1: document.getElementById("expenditure1");
+		var expenditure2: document.getElementById("expenditure1");
+		if (typeof notCollected && previousNotCollected && expenditure1 && expenditure2 !== Number) throw "Insert a valid value";
+			return total = this.dayTotal - (notCollected + previousNotCollected + expenditure1 + expenditure2);
+		},
+		
+	var difference: function() {
+		var totalCollected: document.getElementById("totalcollected");
+		if (typeof totalCollected !== Number) throw "Insert a valid value!";
+			difference = this.total - totalCollected;
+				if(difference > 1 || difference > -1) {
+					document.getElementById("difference").style.background.red;
+				} else {document.getElementById("difference").style.background.green;
+			}
+			return difference;
+		},
+		
+	var register: function() {
+		var deposits: document.getElementBtId("deposite");
+		if (typeof deposits !== Number) throw "Insert a valid value!";
+			register = this.totalCollected - deposits;
+				if(register < 0) 
+					alert("You have deposited more than collected!");
+		}
+}
+
