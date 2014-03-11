@@ -102,16 +102,16 @@ var A = {
 		},
 		
 	total: function() {
-		var notCollected = document.getElementById("notcollected");
-		var previousNotCollected = document.getElementById("notcollectedlate");
-		var expenditure1 = document.getElementById("expenditure1");
-		var expenditure2 = document.getElementById("expenditure1");
+		var notCollected = document.getElementById("notcollected").value;
+		var previousNotCollected = document.getElementById("notcollectedlate").value;
+		var expenditure1 = document.getElementById("expenditure1").value;
+		var expenditure2 = document.getElementById("expenditure1").value;
 		if (typeof notCollected && previousNotCollected && expenditure1 && expenditure2 !== Number) throw "Insert a valid value";
 			return this.dayTotal - (notCollected + previousNotCollected + expenditure1 + expenditure2);
 		},
 		
 	difference: function() {
-		var totalCollected = document.getElementById("totalcollected");
+		var totalCollected = document.getElementById("totalcollected").value;
 		if (typeof totalCollected !== Number) throw "Insert a valid value!";
 			difference = this.total - totalCollected;
 				if(difference > 1 || difference > -1) {
@@ -122,7 +122,7 @@ var A = {
 		},
 		
 	register: function() {
-		var deposits = document.getElementBtId("deposite");
+		var deposits = document.getElementBtId("deposite").value;
 		if (typeof deposits !== Number) throw "Insert a valid value!";
 			register = this.totalCollected - deposits;
 				if(register < 0) 
