@@ -99,8 +99,10 @@ var A = {
 		var invoiced = document.getElementById("invoiced").value;
 		var lastInvoiced = document.getElementById("lastinvoiced").value;
 		//make sure the input values are number types. If not display message demanding to insert a valid value
-		if (typeof invoiced && lastInvoiced !== Number) 
-				console.log("Insert a valid value!");
+		if (typeof invoiced !== Number) 
+				invoiced.innerHTML = "Insert a valid value!";
+		if (typeof lastInvoiced !== Number)
+				lastInvoiced.innerHTML = "Insert a valid value!";
 		//return the sum of the total by adding invoiced and lastInvoiced and adding the euro sign
 			return invoiced + lastInvoiced + "€";
 		},
