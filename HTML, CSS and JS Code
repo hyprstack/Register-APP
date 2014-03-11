@@ -98,7 +98,7 @@ var A = {
 		var invoiced = document.getElementById("invoiced").value;
 		var lastInvoiced = document.getElementById("lastinvoiced").value;
 		if (typeof invoiced && lastInvoiced !== Number) throw "Insert a valid value!";
-			return dayTotal = invoiced + lastInvoiced;
+			return invoiced + lastInvoiced;
 		},
 		
 	total: function() {
@@ -107,7 +107,7 @@ var A = {
 		var expenditure1 = document.getElementById("expenditure1");
 		var expenditure2 = document.getElementById("expenditure1");
 		if (typeof notCollected && previousNotCollected && expenditure1 && expenditure2 !== Number) throw "Insert a valid value";
-			return total = this.dayTotal - (notCollected + previousNotCollected + expenditure1 + expenditure2);
+			return this.dayTotal - (notCollected + previousNotCollected + expenditure1 + expenditure2);
 		},
 		
 	difference: function() {
@@ -116,8 +116,8 @@ var A = {
 			difference = this.total - totalCollected;
 				if(difference > 1 || difference > -1) {
 					document.getElementById("difference").style.background.red;
-				} else {document.getElementById("difference").style.background.green;
-			}
+				} else {document.getElementById("difference").style.background.blue;
+			};
 			return difference;
 		},
 		
