@@ -1,0 +1,29 @@
+.boxed {
+	border-style: none;
+	overflow: auto;
+	width: 70%;
+	margin: 2%;
+}
+
+body {
+	margin: auto;
+	padding: 2%,5%,2%,5%;
+}
+
+caption {
+		font-size: 2em;
+		font-family: "Courier";
+}
+
+table {
+	border-radius: 0.5em;
+	border-style: solid;
+	background: olivedrab;
+}
+
+td {
+	background: darkgreen;
+	opacity: 0.9;
+	width: contain;
+	overflow: scroll;	
+}
