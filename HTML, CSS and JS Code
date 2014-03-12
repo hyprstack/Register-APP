@@ -94,19 +94,28 @@ The JavaScript:
 var A = {
 	
 	//calculate the total invoiced for the day
-	dayTotal: function() {
-		//get the input values for invoiced and lastInvoiced
-		var invoiced = document.getElementById("invoiced").value;
-		var lastInvoiced = document.getElementById("lastinvoiced").value;
+	calcTotalDay: function() {
+		//get the total invoiced for the day and set the value to 0€
+		var dayTotal = document.getElementById("daytotal");
+		dayTotal.innerHTML = "0€";
+		//get the input values for invoiced and lastInvoiced "parsed as integers"
+		var invoiced = parseInt(document.getElementById("invoiced").value, 10);
+		var lastInvoiced = parseInt(document.getElementById("lastinvoiced").value, 10);
 		//make sure the input values are number types. If not display message demanding to insert a valid value
-		if (typeof invoiced !== Number) 
-				invoiced.innerHTML = "Insert a valid value!";
-		if (typeof lastInvoiced !== Number)
-				lastInvoiced.innerHTML = "Insert a valid value!";
+		var type1 = typeof invoiced;
+		var type2 = typeof lastInvoiced;
+		if (type1 !== "number") 
+			invoiced.innerHTML = "Insert a valid value!";
+      if (type2 !== "number")
+			lastInvoiced.innerHTML = "Insert a valid value";
 		//return the sum of the total by adding invoiced and lastInvoiced and adding the euro sign
-			return invoiced + lastInvoiced + "€";
-		},
-		
+		if (type1 === "number" && type2 === "number") {
+			return invoiced + lastInvoiced + " €";
+		} else {
+			return "invalid";
+			};
+		}
+	/*	
 	total: function() {
 		//get the values for the input elements
 		var notCollected = document.getElementById("notcollected").value;
@@ -133,7 +142,7 @@ var A = {
 				if(difference > 1 || difference > -1) {
 					document.getElementById("difference").style.background="red";
 				} else {document.getElementById("difference").style.background="green";
-			};
+			}
 			return difference;
 		},
 		
@@ -148,4 +157,5 @@ var A = {
 					alert("You have deposited more than collected!");
 				return register;
 		}
-}
+		*/
+};
