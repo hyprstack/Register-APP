@@ -8,7 +8,7 @@ var A = {
             dayTotal.innerHTML = "0€";
         } else {
             (function () {
-                //get the input values for invoiced and lastInvoiced "parsed as integers"
+                //get the input values for invoiced and lastInvoiced "parsed as floating point number"
                 var invoiced = parseFloat(document.getElementById("invoiced").value);
                 var lastInvoiced = parseFloat(document.getElementById("lastinvoiced").value);
                 //make sure the input values are number types. If not display message demanding to insert a valid value
