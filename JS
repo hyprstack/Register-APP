@@ -1,31 +1,19 @@
 var A = {
 
     //calculate the total invoiced for the day
-    calcTotalDay: function () {
-        //get the total invoiced for the day and set the value to 0€
-        var dayTotal = document.getElementById("daytotal");
-        if (dayTotal === "" || dayTotal === isNaN) {
-            dayTotal.innerHTML = "0€";
-        } else {
-            (function () {
-                //get the input values for invoiced and lastInvoiced "parsed as floating point number"
-                var invoiced = parseFloat(document.getElementById("invoiced").value);
-                var lastInvoiced = parseFloat(document.getElementById("lastinvoiced").value);
-                //make sure the input values are number types. If not display message demanding to insert a valid value
-                var type1 = typeof invoiced;
-                var type2 = typeof lastInvoiced;
-                if (type1 !== "number") invoiced.innerHTML = "Insert a valid value!";
-                if (type2 !== "number") lastInvoiced.innerHTML = "Insert a valid value";
-                //return the sum of the total by adding invoiced and lastInvoiced and adding the euro sign
-                if (type1 === "number" && type2 === "number") {
-                    dayTotal = invoiced + lastInvoiced + " €";
-                    return dayTotal;
-                } else {
-                    return "invalid";
-                }
-            }());
-        }
+    calcTotalInvoiced: function () {
+        var tInvoiced = document.getElementById("daytotal");
+            daytotal.innerHTML = "0€";
+        var lastInvoiced = document.getElementById("lastinvoiced").value;
+        lastInvoiced.onchange = (function () {
+            if (typeof lastInvoiced !== "number" || typeof lastInvoiced === isNaN) {
+                lastInvoiced.innerHTML = "Insert value";
+            } else { 
+                return parseFloat("lastInvoiced");
+            }
+        }());
     }
+};
     /*	
 	total: function() {
 		//get the values for the input elements
@@ -71,3 +59,4 @@ var A = {
 		*/
 
 };
+window.onload=A.totalInvoiced();
