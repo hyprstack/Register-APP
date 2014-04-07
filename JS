@@ -1,32 +1,67 @@
 var A = {
 
-    initialTotalInvoiced: function () {
+    //calculate the total invoiced for the day
+    //first get daytotal and display its value as "0€"
+    calcTotalInvoiced: function () {
         var tInvoiced = document.getElementById("daytotal");
         //get the value of lastinvoiced and use the onchange event listener
         //setting a function to it that will check for the value passed to lastInvoiced
         //If typeof lastInvoiced is not a number display a message prompting to insert a value
-        //if lastInvoice is a number, then use parseFloat to set it as a floating point number a return it for later use
-        tInvoiced.innerHTML = "0€";
-
-        var invoiced = document.getElementById("invoiced").value;
-        invoiced.onchange = function () {
-            if (typeof invoiced !== "number") {
-                return false;
-            } else {
-                return parseFloat("invoiced");
-            }
-        };
-
+        //if lastInvoice is a number, then use parseFloat to set it as a floating point number a return this 
+        //for later use
         var lastInvoiced = document.getElementById("lastinvoiced").value;
-        lastInvoiced.onchange = function () {
+        lastInvoiced.onchange = (function () {
             if (typeof lastInvoiced !== "number") {
-                return false;
-            } else {
+                lastInvoiced.innerHTML = "Insert value";
+            } else { 
                 return parseFloat("lastInvoiced");
             }
-        };
-
-        tInvoiced = invoiced + lastInvoiced + "€";
+        }());
     }
 };
-window.onload = A.initialTotalInvoiced();
+    /*	
+	total: function() {
+		//get the values for the input elements
+		var notCollected = document.getElementById("notcollected").value;
+		var previousNotCollected = document.getElementById("notcollectedlate").value;
+		var expenditure1 = document.getElementById("expenditure1").value;
+		var expenditure2 = document.getElementById("expenditure1").value;
+		//make sure the input values are number types. If not display message demanding to insert a valid value
+		if (typeof notCollected && previousNotCollected && expenditure1 && expenditure2 !== Number) 
+				console.log("Insert a valid value");
+		//return the value of total by getting the value of dayTotal calculated before and subtracting the sum of notCollected, previousNotCollected,
+		//expenditure1 and expenditure2
+			return this.dayTotal - (notCollected + previousNotCollected + expenditure1 + expenditure2);
+		},
+		
+	difference: function() {
+		//get the value of totalCollected
+		var totalCollected = document.getElementById("totalcollected").value;
+		//make sure the input values are number types. If not display message demanding to insert a valid value
+		if (typeof totalCollected !== Number) 
+				console.log("Insert a valid value!");
+		//calculate the difference between previously calculated total and totalCollected
+			difference = this.total - totalCollected;
+		//if the value of difference is larger than 1 and -1, set the background colour of the element to red. If it is between -1 and 1 set the colour to blue
+				if(difference > 1 || difference > -1) {
+					document.getElementById("difference").style.background="red";
+				} else {document.getElementById("difference").style.background="green";
+			}
+			return difference;
+		},
+		
+	register: function() {
+		var deposits = document.getElementBtId("deposite").value;
+		if (typeof deposits !== Number) 
+				console.log("Insert a valid value!");
+		//the value added to the register is the difference between the totalCollected and the amount deposited
+			register = this.totalCollected - deposits;
+		//display an alert if the amount deposited is larger than the amount of totalCollected
+				if(register < 0) 
+					alert("You have deposited more than collected!");
+				return register;
+		}
+		*/
+
+};
+window.onload=A.totalInvoiced();
