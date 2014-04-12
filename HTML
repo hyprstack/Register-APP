@@ -12,6 +12,7 @@
 	
 	<body>
 		<div id="content">
+		<form name="routeregister" method="POST">
 		<table class="register">
 			<caption>
 				Register
@@ -37,23 +38,24 @@
 				<tbody>
 					<tr>
 						<td id="date"></td>
-						<td><input type="number" id="route" class="boxed"/></td>
-						<td><input type="number" id="invoiced" class="boxed"/>&euro;</td>
-						<td><input type="number" id="lastinvoiced" class="boxed"/>&euro;</td>
-						<td id="daytotal"></td>
-						<td><input type="number" id="notcollected" class="boxed"/>&euro;</td>
-						<td><input type="number" id="notcollectedlate" class="boxed"/>&euro;</td>
-						<td><input type="number" id="expenditure1" class="boxed"/>&euro;</td>
-						<td><input type="number" id="expenditure2" class="boxed"/>&euro;</td>
-						<td id="total"></td>
-						<td><input type="number" id="totalcollected" class="boxed"/>&euro;</td>
-						<td id="difference"></td>
-						<td><input type="number" id="deposite" class="boxed"/>&euro;</td>
-						<td id="registered"></td>
+						<td><input type="text" id="route" value="" class="boxed"/></td>
+						<td><input type="text" id="invoiced" value="" class="boxed"/></td>
+						<td><input type="text" id="lastinvoiced" value="" class="boxed"/></td>
+						<td><input type="text" id="daytotal" readonly="readonly" value="-" class="boxed"/></td>
+						<td><input type="text" id="notcollected" value="" class="boxed"/></td>
+						<td><input type="text" id="notcollectedlate" value="" class="boxed"/></td>
+						<td><input type="text" id="expenditure1" value="" class="boxed"/></td>
+						<td><input type="text" id="expenditure2" value="" class="boxed"/></td>
+						<td><input type="text" id="total" readonly="readonly" value="" class="boxed"/></td>
+						<td><input type="text" id="totalcollected" value="" class="boxed"/></td>
+						<td><input type="text" id="difference" readonly="readonly" value="" class="boxed"/></td>
+						<td><input type="text" id="deposite" value="" class="boxed"/></td>
+						<td><input type="text" id="registered" readonly="readonly" value="" class="boxed"/></td>
 					</tr>
 				</tbody>
 			</table>
+			</form>
 			</div>
-			<script type="text/javascript" src="functions.js" />
+			<script type="text/javascript" src="functions.js"></script>
 		</body>
 	</html>
