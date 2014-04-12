@@ -1,32 +1,31 @@
 var A = {
 
-    initialTotalInvoiced: function () {
-        var tInvoiced = document.getElementById("daytotal");
-        //get the value of lastinvoiced and use the onchange event listener
-        //setting a function to it that will check for the value passed to lastInvoiced
-        //If typeof lastInvoiced is not a number display a message prompting to insert a value
-        //if lastInvoice is a number, then use parseFloat to set it as a floating point number a return it for later use
-        tInvoiced.innerHTML = "0€";
+invoiced: document.getElementById("invoiced"),
+    
+lastInvoiced: document.getElementById("lastinvoiced"),
 
-        var invoiced = document.getElementById("invoiced").value;
-        invoiced.onchange = function () {
-            if (typeof invoiced !== "number") {
-                return false;
-            } else {
-                return parseFloat("invoiced");
-            }
-        };
+totalInvoiced: function () {
+    
+    var invoiced1 = A.invoiced.value;
 
-        var lastInvoiced = document.getElementById("lastinvoiced").value;
-        lastInvoiced.onchange = function () {
-            if (typeof lastInvoiced !== "number") {
-                return false;
-            } else {
-                return parseFloat("lastInvoiced");
-            }
-        };
+    var lastInvoiced1 = A.lastInvoiced.value;
 
-        tInvoiced = invoiced + lastInvoiced + "€";
+    var value1 = parseFloat(invoiced1);
+
+    var value2 = parseFloat(lastInvoiced1);
+
+        if(isNaN(value1))
+            value1 = 0;
+        if(isNaN(value2))
+            value2 = 0;
+
+    var totalInvoiced1 = value1 + value2;
+    var value3 = document.getElementById("daytotal").value = totalInvoiced1 + "€";
+    console.log(value3);
+	return value3;   
     }
+
 };
-window.onload = A.initialTotalInvoiced();
+window.onload = A.totalInvoiced();
+A.invoiced.addEventListener("change", A.totalInvoiced, false);
+A.lastInvoiced.addEventListener("change", A.totalInvoiced, false);
