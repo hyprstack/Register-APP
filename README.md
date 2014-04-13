@@ -1,5 +1,6 @@
 Register-APP
 ============
+It finally lives ..... well, partially anyway! :)
 
 This is a first attempt at a simple App.
 
