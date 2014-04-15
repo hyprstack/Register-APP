@@ -1,5 +1,19 @@
 var A = {
 
+today: document.getElementById("today"),
+
+displayDate: function (){
+
+    var cD = new Date();
+    var day = cD.getDate();
+    var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"];
+    var year = cD.getFullYear();
+
+    var today1 = A.today;
+
+    today1.innerHTML = (day + "/" + months[cD.getMonth()] + "/" + year);
+},
+
 invoiced: document.getElementById("invoiced"),
     
 lastInvoiced: document.getElementById("lastinvoiced"),
@@ -27,5 +41,6 @@ totalInvoiced: function () {
 
 };
 window.onload = A.totalInvoiced();
+window.onload = A.displayDate();
 A.invoiced.addEventListener("change", A.totalInvoiced, false);
 A.lastInvoiced.addEventListener("change", A.totalInvoiced, false);
