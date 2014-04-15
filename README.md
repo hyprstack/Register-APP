@@ -13,7 +13,7 @@ When at the company I developed this table in excel, but thought it would be muc
 
 Here is a link to the app so far.
 
-http://jsfiddle.net/MMendes/eKeLt/9/
+http://jsfiddle.net/MMendes/eKeLt/10/
 
 
 
