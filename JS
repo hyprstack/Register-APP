@@ -1,5 +1,6 @@
 var A = {
 
+
 today: document.getElementById("today"),
 
 displayDate: function (){
@@ -14,19 +15,16 @@ displayDate: function (){
     today1.innerHTML = (day + "/" + months[cD.getMonth()] + "/" + year);
 },
 
+
+
 invoiced: document.getElementById("invoiced"),
-    
 lastInvoiced: document.getElementById("lastinvoiced"),
 
 totalInvoiced: function () {
-    
-    var invoiced1 = A.invoiced.value;
 
-    var lastInvoiced1 = A.lastInvoiced.value;
+    var value1 = parseFloat(A.invoiced.value);
 
-    var value1 = parseFloat(invoiced1);
-
-    var value2 = parseFloat(lastInvoiced1);
+    var value2 = parseFloat(A.lastInvoiced.value);
 
         if(isNaN(value1))
             value1 = 0;
@@ -36,11 +34,82 @@ totalInvoiced: function () {
     var totalInvoiced1 = value1 + value2;
     var value3 = document.getElementById("daytotal").value = totalInvoiced1 + "€";
     console.log(value3);
-	return value3;   
-    }
+	return totalInvoiced1;   
+},
+
+notCollected: document.getElementById("notcollected"),
+notCollectedLate: document.getElementById("notcollectedlate"),
+expenditure1: document.getElementById("expenditure1"),
+expenditure2: document.getElementById("expenditure2"),
+
+totalRoute: function() {
+
+    var value4 = parseFloat(A.notCollected.value);
+
+    var value5 = parseFloat(A.notCollectedLate.value);
+
+    var value6 = parseFloat(A.expenditure1.value);
+
+    var value7 = parseFloat(A.expenditure2.value);
+
+        if(isNaN(value4))
+            value4 = 0;
+        if(isNaN(value5))
+            value5 = 0;
+        if(isNaN(value6))
+            value6 = 0;
+        if(isNaN(value7))
+            value7 = 0;
+
+    var totalExp = (value4 + value5 + value6 + value7);
+    var value3 = A.totalInvoiced();
+    var tRoute = value3 - totalExp;
+    var value8 = document.getElementById("total").value = tRoute + "€";
+
+    console.log(value8);
+    return tRoute;
+},
+
+totalCollected: document.getElementById("totalcollected"),
+
+difTrTC: function () {
+    
+    var value8 = A.totalRoute();
+    var value13 = parseFloat(A.totalCollected.value);
+
+    var difTrTC1 = value13 - value8;
+    value9 = document.getElementById("difference").value = difTrTC1 + "€";
+
+    console.log(value9);
+},
+
+deposited: document.getElementById("deposite"),
+
+inRegister: function () {
+    
+    var value10 = parseFloat(A.deposited.value);
+    var value11 = parseFloat(A.totalCollected.value);
+
+    var inRegister = value11 - value10;
+    var value12 = document.getElementById("registered").value = inRegister + "€";
+
+    console.log(value12);
+    return inRegister;
+}
+
 
 };
 window.onload = A.totalInvoiced();
 window.onload = A.displayDate();
+
 A.invoiced.addEventListener("change", A.totalInvoiced, false);
 A.lastInvoiced.addEventListener("change", A.totalInvoiced, false);
+
+A.notCollected.addEventListener("change", A.totalRoute, false);
+A.notCollectedLate.addEventListener("change", A.totalRoute, false);
+A.expenditure1.addEventListener("change", A.totalRoute, false);
+A.expenditure2.addEventListener("change", A.totalRoute, false);
+
+A.totalCollected.addEventListener("change", A.difTrTC, false);
+
+A.deposited.addEventListener("change", A.inRegister, false);
