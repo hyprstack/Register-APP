@@ -14,6 +14,25 @@ displayDate: function (){
 
     today1.innerHTML = (day + "/" + months[cD.getMonth()] + "/" + year);
 },
+        /* proprerties have been defined outside of the functions to enable the use of their values upon user input inside the functions;
+        *
+        *  define local variables inside functions using the value input by user;
+        *
+        *  create en empty array literal to enable insertion of various values in single input field by user
+        *  because this value will be parsed as a single element (string) to the array, split it by the "+" sign and use
+        *  the "map" method with the "parseFloat" function to convert the string into floating-point numbers 
+        *  and create a multi-indexed array (length < 1);
+        *
+        *  define  a "storage" variable and initialize it to 0;
+        *
+        *  use "forEach" method to iterate each array element and add all the values in the array, storing the result in the "storage" variable;
+        *
+        *  this variable will serve as the final value for each input field;
+        *
+        *  If any of these values evaluate to NaN, set their value to 0;
+        *
+        *  Return certain values for use in subsequent functions;
+        */
 
 
 
@@ -22,9 +41,22 @@ lastInvoiced: document.getElementById("lastinvoiced"),
 
 totalInvoiced: function () {
 
-    var value1 = parseFloat(A.invoiced.value);
+        var a = A.invoiced.value;
+        var value1Arr = []; 
+            value1Arr = a.split("+").map(parseFloat);
+        var value1 = 0;
+            value1Arr.forEach(function (value) {
+            value1 += value;
+        });
 
-    var value2 = parseFloat(A.lastInvoiced.value);
+
+        var b = A.lastInvoiced.value;
+        var value2Arr = [];
+            value2Arr = b.split("+").map(parseFloat);
+        var value2 = 0;
+            value2Arr.forEach(function (value) {
+            value2 += value;
+        });
 
         if(isNaN(value1))
             value1 = 0;
@@ -44,13 +76,37 @@ expenditure2: document.getElementById("expenditure2"),
 
 totalRoute: function() {
 
-    var value4 = parseFloat(A.notCollected.value);
+    var a = A.notCollected.value;
+    var value4Arr = [];
+        value4Arr = a.split("+").map(parseFloat);
+    var value4 = 0;
+        value4Arr.forEach(function (value) {
+            value4 += value;
+        });
 
-    var value5 = parseFloat(A.notCollectedLate.value);
+    var b = A.notCollectedLate.value;
+    var value5Arr = [];
+        value5Arr = b.split("+").map(parseFloat);
+    var value5 = 0;
+        value5Arr.forEach(function (value) {
+            value5 += value;
+        });
 
-    var value6 = parseFloat(A.expenditure1.value);
+    var c = A.expenditure1.value;
+    var value6Arr = [];
+        value6Arr = c.split("+").map(parseFloat);
+    var value6 = 0;
+        value6Arr.forEach(function (value) {
+            value6 += value;
+        });
 
-    var value7 = parseFloat(A.expenditure2.value);
+    var d = A.expenditure2.value;
+        var value7Arr = [];
+        value7Arr = d.split("+").map(parseFloat);
+    var value7 = 0;
+        value7Arr.forEach(function (value) {
+            value7 += value;
+        });
 
         if(isNaN(value4))
             value4 = 0;
@@ -75,9 +131,16 @@ totalCollected: document.getElementById("totalcollected"),
 difTrTC: function () {
     
     var value8 = A.totalRoute();
-    var value13 = parseFloat(A.totalCollected.value);
+    var a = A.totalCollected.value;
+            var value13Arr = [];
+        value13Arr = a.split("+").map(parseFloat);
+    var value13 = 0;
+        value13Arr.forEach(function (value) {
+            value13 += value;
+        });
 
-    var difTrTC1 = value13 - value8;
+    var b = (value13 - value8);
+    var difTrTC1 = b.toFixed(2);
     value9 = document.getElementById("difference").value = difTrTC1 + "€";
 
     console.log(value9);
@@ -88,7 +151,13 @@ deposited: document.getElementById("deposite"),
 inRegister: function () {
     
     var value10 = parseFloat(A.deposited.value);
-    var value11 = parseFloat(A.totalCollected.value);
+    var a = A.totalCollected.value;
+    var value11Arr = [];
+        value11Arr = a.split("+").map(parseFloat);
+    var value11 = 0;
+        value11Arr.forEach(function (value) {
+            value11 += value;
+        });
 
     var inRegister = value11 - value10;
     var value12 = document.getElementById("registered").value = inRegister + "€";
