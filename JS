@@ -14,7 +14,8 @@ displayDate: function (){
 
     today1.innerHTML = (day + "/" + months[cD.getMonth()] + "/" + year);
 },
-        /* proprerties have been defined outside of the functions to enable the use of their values upon user input inside the functions;
+        /* proprerties have been defined outside of the functions to enable the use of their values upon user input 
+        *  inside the functions;
         *
         *  define local variables inside functions using the value input by user;
         *
@@ -25,7 +26,8 @@ displayDate: function (){
         *
         *  define  a "storage" variable and initialize it to 0;
         *
-        *  use "forEach" method to iterate each array element and add all the values in the array, storing the result in the "storage" variable;
+        *  use "forEach" method to iterate each array element and add all the values in the array, storing the result 
+        *  in the "storage" variable;
         *
         *  this variable will serve as the final value for each input field;
         *
