@@ -159,7 +159,8 @@ inRegister: function () {
             value11 += value;
         });
 
-    var inRegister = value11 - value10;
+    var b = value11 - value10;
+    var inRegister = b.toFixed(2);
     var value12 = document.getElementById("registered").value = inRegister + "€";
 
     console.log(value12);
