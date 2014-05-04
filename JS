@@ -19,9 +19,9 @@ displayDate: function (){
         *  define local variables inside functions using the value input by user;
         *
         *  create en empty array literal to enable insertion of various values in single input field by user
-        *  because this value will be parsed as a single element (string) to the array, split it by the "+" sign and use
-        *  the "map" method with the "parseFloat" function to convert the string into floating-point numbers 
-        *  and create a multi-indexed array (length < 1);
+        *  because this value will be parsed as a single element (string) to the array, split it by the "+" and "-"
+        *  sign and use the "map" method with the "parseFloat" function to convert the string into floating-point numbers 
+        *  and create a multi-indexed array (length > 1);
         *
         *  define  a "storage" variable and initialize it to 0;
         *
