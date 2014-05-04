@@ -14,8 +14,7 @@ displayDate: function (){
 
     today1.innerHTML = (day + "/" + months[cD.getMonth()] + "/" + year);
 },
-        /* proprerties have been defined outside of the functions to enable the use of their values upon user input 
-        *  inside the functions;
+        /* proprerties have been defined outside of the functions to enable the use of their values upon user input inside the functions;
         *
         *  define local variables inside functions using the value input by user;
         *
@@ -26,8 +25,7 @@ displayDate: function (){
         *
         *  define  a "storage" variable and initialize it to 0;
         *
-        *  use "forEach" method to iterate each array element and add all the values in the array, storing the result 
-        *  in the "storage" variable;
+        *  use "forEach" method to iterate each array element and add all the values in the array, storing the result in the "storage" variable;
         *
         *  this variable will serve as the final value for each input field;
         *
@@ -45,7 +43,7 @@ totalInvoiced: function () {
 
         var a = A.invoiced.value;
         var value1Arr = []; 
-            value1Arr = a.split("+").map(parseFloat);
+            value1Arr = a.split(/\+|(?=-)/).map(parseFloat);
         var value1 = 0;
             value1Arr.forEach(function (value) {
             value1 += value;
@@ -54,7 +52,7 @@ totalInvoiced: function () {
 
         var b = A.lastInvoiced.value;
         var value2Arr = [];
-            value2Arr = b.split("+").map(parseFloat);
+            value2Arr = b.split(/\+|(?=-)/).map(parseFloat);
         var value2 = 0;
             value2Arr.forEach(function (value) {
             value2 += value;
@@ -80,7 +78,7 @@ totalRoute: function() {
 
     var a = A.notCollected.value;
     var value4Arr = [];
-        value4Arr = a.split("+").map(parseFloat);
+        value4Arr = a.split(/\+|(?=-)/).map(parseFloat);
     var value4 = 0;
         value4Arr.forEach(function (value) {
             value4 += value;
@@ -88,7 +86,7 @@ totalRoute: function() {
 
     var b = A.notCollectedLate.value;
     var value5Arr = [];
-        value5Arr = b.split("+").map(parseFloat);
+        value5Arr = b.split(/\+|(?=-)/).map(parseFloat);
     var value5 = 0;
         value5Arr.forEach(function (value) {
             value5 += value;
@@ -96,7 +94,7 @@ totalRoute: function() {
 
     var c = A.expenditure1.value;
     var value6Arr = [];
-        value6Arr = c.split("+").map(parseFloat);
+        value6Arr = c.split(/\+|(?=-)/).map(parseFloat);
     var value6 = 0;
         value6Arr.forEach(function (value) {
             value6 += value;
@@ -104,7 +102,7 @@ totalRoute: function() {
 
     var d = A.expenditure2.value;
         var value7Arr = [];
-        value7Arr = d.split("+").map(parseFloat);
+        value7Arr = d.split(/\+|(?=-)/).map(parseFloat);
     var value7 = 0;
         value7Arr.forEach(function (value) {
             value7 += value;
@@ -135,13 +133,13 @@ difTrTC: function () {
     var value8 = A.totalRoute();
     var a = A.totalCollected.value;
             var value13Arr = [];
-        value13Arr = a.split("+").map(parseFloat);
+        value13Arr = a.split(/\+|(?=-)/).map(parseFloat);
     var value13 = 0;
         value13Arr.forEach(function (value) {
             value13 += value;
         });
 
-    var b = (value13 - value8);
+    var b = value13 - value8;
     var difTrTC1 = b.toFixed(2);
     value9 = document.getElementById("difference").value = difTrTC1 + "€";
 
@@ -155,7 +153,7 @@ inRegister: function () {
     var value10 = parseFloat(A.deposited.value);
     var a = A.totalCollected.value;
     var value11Arr = [];
-        value11Arr = a.split("+").map(parseFloat);
+        value11Arr = a.split(/\+|(?=-)/).map(parseFloat);
     var value11 = 0;
         value11Arr.forEach(function (value) {
             value11 += value;
