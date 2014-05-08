@@ -19,8 +19,8 @@ displayDate: function (){
         *  define local variables inside functions using the value input by user;
         *
         *  create en empty array literal to enable insertion of various values in single input field by user
-        *  because this value will be parsed as a single element (string) to the array, split it by the "+" and "-"
-        *  sign and use the "map" method with the "parseFloat" function to convert the string into floating-point numbers 
+        *  because this value will be parsed as a single element (string) to the array, split it by the "+" and "-" sign and use
+        *  the "map" method with the "parseFloat" function to convert the string into floating-point numbers 
         *  and create a multi-indexed array (length > 1);
         *
         *  define  a "storage" variable and initialize it to 0;
@@ -165,12 +165,33 @@ inRegister: function () {
 
     console.log(value12);
     return inRegister;
+},
+
+    /* hideSubmitButton and showSubmitButton both dynamically alter the visibility style of the submit button;
+     * hideSubmitButton is triggered when the document loads 
+     * the register element is gotten and used to trigger the showSubmitButton function to make the button visible
+     * on when focus is on the register field.
+     * This is to disable any accidental submission os values.
+    */
+    
+
+hideSubmitButton: function () {
+    var subButton = document.getElementById("submitbutton");
+    subButton.style.visibility = "hidden";
+},
+
+toRegister: document.getElementById("registered"),
+
+showSubmitButton: function () {
+    var subButton = document.getElementById("submitbutton");
+    subButton.style.visibility = "visible";
 }
 
 
 };
 window.onload = A.totalInvoiced();
 window.onload = A.displayDate();
+window.onload = A.hideSubmitButton();
 
 A.invoiced.addEventListener("change", A.totalInvoiced, false);
 A.lastInvoiced.addEventListener("change", A.totalInvoiced, false);
@@ -183,3 +204,5 @@ A.expenditure2.addEventListener("change", A.totalRoute, false);
 A.totalCollected.addEventListener("change", A.difTrTC, false);
 
 A.deposited.addEventListener("change", A.inRegister, false);
+
+A.toRegister.addEventListener("focus", A.showSubmitButton, false);
