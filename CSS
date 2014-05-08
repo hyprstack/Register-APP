@@ -27,3 +27,7 @@ td {
 	width: contain;
 	overflow: scroll;	
 }
+
+#submitbutton {
+	margin-left: 80%;
+}
