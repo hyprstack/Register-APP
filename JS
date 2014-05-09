@@ -185,7 +185,9 @@ toRegister: document.getElementById("registered"),
 showSubmitButton: function () {
     var subButton = document.getElementById("submitbutton");
     subButton.style.visibility = "visible";
-}
+},
+
+resetButton: document.getElementById("resetbutton"),
 
 
 };
@@ -206,3 +208,5 @@ A.totalCollected.addEventListener("change", A.difTrTC, false);
 A.deposited.addEventListener("change", A.inRegister, false);
 
 A.toRegister.addEventListener("focus", A.showSubmitButton, false);
+
+A.resetButton.addEventListener("click", A.hideSubmitButton, false);
