@@ -12,7 +12,7 @@
 	
 	<body>
 		<div id="content">
-		<form name="routeregister" method="POST">
+		<form name="routeregister" action="" method="POST" id="registerID">
 		<table class="register">
 			<caption>
 				Register
@@ -32,30 +32,33 @@
 						<th>Total Collected</th>
 						<th>Difference T.R&#8722;T.C</th>
 						<th>Deposited</th>
-						<th>In Register</th>
+						<th>To Register</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td id="date"></td>
-						<td><input type="text" id="route" value="" class="boxed"/></td>
-						<td><input type="text" id="invoiced" value="" class="boxed"/></td>
-						<td><input type="text" id="lastinvoiced" value="" class="boxed"/></td>
-						<td><input type="text" id="daytotal" readonly="readonly" value="-" class="boxed"/></td>
-						<td><input type="text" id="notcollected" value="" class="boxed"/></td>
-						<td><input type="text" id="notcollectedlate" value="" class="boxed"/></td>
-						<td><input type="text" id="expenditure1" value="" class="boxed"/></td>
-						<td><input type="text" id="expenditure2" value="" class="boxed"/></td>
-						<td><input type="text" id="total" readonly="readonly" value="" class="boxed"/></td>
-						<td><input type="text" id="totalcollected" value="" class="boxed"/></td>
-						<td><input type="text" id="difference" readonly="readonly" value="" class="boxed"/></td>
-						<td><input type="text" id="deposite" value="" class="boxed"/></td>
-						<td><input type="text" id="registered" readonly="readonly" value="" class="boxed"/></td>
-					</tr>
+						<td id="today" value=""></td>
+						<td><input type="text" name="route" id="route" value="" class="boxed" required /></td>
+						<td><input type="text" name="invoiced" id="invoiced" value="" class="checkable boxed" pattern="((\+|\-)?((\d+\.)?\d+))+" oninvalid="setCustomValidity('Only number(s) or sums(+-')" oninput="setCustomValidity('')" /></td><!--This pattern matches an optinal '+' or '-' sign before one or more floating point numbers, in which the number before the decimal part is also optional, this allows for insertions of '.5' instead of '0.5' to be matched-->
+						<td><input type="text" name="lastinvoiced" id="lastinvoiced" value="" class="checkable boxed" pattern="((\+|\-)?((\d+\.)?\d+))+" oninvalid="setCustomValidity('Only number(s) or sums(+-')" oninput="setCustomValidity('')" /></td>
+						<td><input type="text" name="daytotal" id="daytotal" readonly="readonly" value="" class="boxed" /></td>
+						<td><input type="text" name="notcollected" id="notcollected" value="" class="checkable boxed" pattern="((\+|\-)?((\d+\.)?\d+))+" oninvalid="setCustomValidity('Only number(s) or sums(+-')" oninput="setCustomValidity('')" /></td>
+						<td><input type="text" name="notcollectedlate" id="notcollectedlate" value="" class="checkable boxed" pattern="((\+|\-)?((\d+\.)?\d+))+" oninvalid="setCustomValidity('Only number(s) or sums(+-')" oninput="setCustomValidity('')" /></td>
+						<td><input type="text" name="expenditure1" id="expenditure1" value="" class="checkable boxed" pattern="((\+|\-)?((\d+\.)?\d+))+" oninvalid="setCustomValidity('Only number(s) or sums(+-')" oninput="setCustomValidity('')" /></td>
+						<td><input type="text" name="expenditure2" id="expenditure2" value="" class="checkable boxed" pattern="((\+|\-)?((\d+\.)?\d+))+" oninvalid="setCustomValidity('Only number(s) or sums(+-')" oninput="setCustomValidity('')" /></td>
+						<td><input type="text" name="total" id="total" readonly="readonly" value="" class="boxed" /></td>
+						<td><input type="text" name="totalcollected" id="totalcollected" value="" class="checkable boxed" pattern="((\+|\-)?((\d+\.)?\d+))+" oninvalid="setCustomValidity('Only number(s) or sums(+-')" oninput="setCustomValidity('')" oninvalid="setCustomValidity('Only number(s) or sums(+-')" oninput="setCustomValidity('')" /></td>
+						<td><input type="text" name="difference" id="difference" readonly="readonly" value="" class="boxed"/></td>
+						<td><input type="text" name="deposite" id="deposite" value="" class="checkable boxed" pattern="((\+|\-)?((\d+\.)?\d+))+" oninvalid="setCustomValidity('Only number(s) or sums(+-')" oninput="setCustomValidity('')" /></td>
+						<td><input type="text" name="registered" id="registered" readonly="readonly" value="" class="boxed"/></td>
+					</tr>					
 				</tbody>
 			</table>
+						<footer>
+							<p><small>To activate the submit button please move into the <i>To Register</i> field.</small></p>
+						</footer>
 				<p id="optionbuttons">
-					<input type="submit" value="Search Register" id="searchbutton" class="buttons"/>
+					<input type="button" value="Search Register" id="searchbutton" class="buttons"/>
 					<input type="reset" value="Reset Register" id="resetbutton" class="buttons"/>
 					<input type="submit" value="Submit Register" id="submitbutton" class="buttons"/>
 				</p>
@@ -66,4 +69,4 @@
 			</div>
 			<script type="text/javascript" src="functions.js"></script>
 		</body>
-	</html>
+	</html>				
