@@ -32,6 +32,24 @@ td {
 	margin-left: 80%;
 }
 
+#resetbutton {
+	margin-left: 36.5%;
+}
+
+#optionbuttons {
+	display: block;
+}
+
+footer {
+	padding-left: 1%
+}
+
+input: invalid {
+	box-shadow: 0 0 5px 1px #EB0505;
+	background-color: #E68805;
+	border-color: #FA0505;
+}
+
 /* 
 Max width before this PARTICULAR table gets nasty
 This query will take effect for any screen smaller than 760px
