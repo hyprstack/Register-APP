@@ -13,9 +13,9 @@ When at the company I developed this table in excel, but thought it would be muc
 
 Here is a link to the app so far.
 
-http://jsfiddle.net/MMendes/eKeLt/22/
+http://jsfiddle.net/MMendes/eKeLt/29/
 
-Following up-dates should enable multiple sums in a sigle input field and still display the total value of that input field, along with storing the data in a database for later conference.
+Following up-dates should enable storing the data in a database for later conference.
 
 
 
